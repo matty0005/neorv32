@@ -313,7 +313,7 @@ while `LENGTH` defines its size in bytes. The attributes are configured indirect
 [source]
 ----
 /* Default rom/ram (IMEM/DMEM) sizes */
-__neorv32_rom_size = DEFINED(__neorv32_rom_size) ? __neorv32_rom_size : 2048M;
+__neorv32_rom_size = DEFINED(__neorv32_rom_size) ? __neorv32_rom_size : 16K;
 __neorv32_ram_size = DEFINED(__neorv32_ram_size) ? __neorv32_ram_size : 8K;
 
 /* Default section base addresses - do not change this unless the hardware-defined address space layout is changed! */
@@ -336,7 +336,7 @@ configuration. Also, `neorv32_ram_base` (= `ORIGIN` of the `rom` section) has to
 `ispace_base_c` hardware configuration.
 
 [NOTE]
-The default configuration for the `rom` section assumes a maximum of 2GB _logical_ memory address space. This size does not
+The default configuration for the `rom` section assumes a maximum of 16kB _logical_ memory address space. This size does not
 have to reflect the _actual_ physical size of the entire instruction memory. It just provides a maximum limit. When uploading
 a new executable via the bootloader, the bootloader itself checks if sufficient _physical_ instruction memory is available.
 If a new executable is embedded right into the internal-IMEM the synthesis tool will check, if the configured instruction memory
